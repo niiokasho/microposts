@@ -1,33 +1,24 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
-<ul>
-  <br>
-  <br>
-  <li>age: <%= @user.age %></li>
-  <li>area: <%= @user.area %></li>
-  <% if @user == current_user %>
-  <li>email: <%= @user.email %></li>
-  <br>
-  <br>
-  <% end %>
-</ul>
-
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
+      <%= gravatar_for @user %>
+      <%= @user.name %>
       </h1>
+      <ul>
+        <li>age: <%= @user.age %></li>
+        <li>area: <%= @user.area %></li>
+        <% if @user == current_user %>
+        <li>email: <%= @user.email %></li>
+        <% end %>
+      </ul>
     </section>
   </aside>
   <div class="col-md-8">
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
-       <%= render partial: 'microposts/micropost', collection: @microposts %>
+        <%= render partial: 'microposts/micropost', collection: @microposts %>
       </ol>
     <% end %>
   </div>
